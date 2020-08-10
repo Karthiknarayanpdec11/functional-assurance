@@ -1,0 +1,10 @@
+.DS_Store
+target/*
+target/
+log/*
+log/
+.idea
+.idea/*
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+.idea/misc.xml
+log/myinfo.log
