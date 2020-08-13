@@ -36,20 +36,13 @@ public class WebDriverFactory {
      */
     public static WebDriver createWebDriverInstance(String strDevice) {
         WebDriver driver = null;
-
         try {
-
             ChromeOptions chromeOptions;
             FirefoxOptions firefoxOptions;
-            URL testGridUrl = null;
+            URL testGridUrl = System.getProperty("gridURL").trim();
             String strExecutionPlatform = System.getProperty("executionPlatform").trim().toUpperCase();
             //LOCAL_CHROME, LOCAL_FIREFOX, AWS_CHROME, AWS_FIREFOX, AWS_DEVICEFARM_CHROME, AWS_DEVICEFARM_FIREFOX
-            Map<String, String> mobileEmulation = new HashMap<>();
-            //Nexus 7, Galaxy S5, iPad, Pixel 2
-            if (!strDevice.isEmpty() && !strDevice.equalsIgnoreCase("Web"))
-            {
-                mobileEmulation.put("deviceName", strDevice);
-            }
+
 
             switch (strExecutionPlatform) {
                 case "LOCAL_CHROME":
@@ -66,39 +59,14 @@ public class WebDriverFactory {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver(firefoxOptions);
                     break;
-                case "AWS_CHROME":
-                    chromeOptions = new ChromeOptions();
-                    chromeOptions.setHeadless(true);
-                    chromeOptions.addArguments("--no-sandbox");
-                    chromeOptions.addArguments("--disable-dev-shm-usage");
-                    chromeOptions.addArguments("start-maximized");
-                    chromeOptions.addArguments("--disable-gpu");
-                    chromeOptions.addArguments("enable-automation");
-                    chromeOptions.addArguments("--disable-infobars");
-                    chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-                    chromeOptions.setBinary(readData().getProperty("AWS_CHROME_BROWSER_PATH").trim());
-//                    WebDriverManager.chromedriver().setup();
-                    System.setProperty("webdriver.chrome.driver", readData().getProperty("AWS_CHROME_DRIVER_PATH").trim());
-                    driver = new ChromeDriver(chromeOptions);
-                    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                    break;
-                case "AWS_FIREFOX":
-                    firefoxOptions = new FirefoxOptions();
-                    firefoxOptions.setHeadless(true);
-//                    System.setProperty("webdriver.gecko.driver", readData().getProperty("AWS_FIREFOX_DRIVER_PATH").trim());
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver(firefoxOptions);
-                    break;
-                case "AWS_DEVICEFARM_CHROME":
-                    testGridUrl = getTestGridUrl();
+                case "GRID_CHROME":
                     DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
                     chromeOptions = new ChromeOptions();
                     chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
                     desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                     driver = new RemoteWebDriver(testGridUrl, desiredCapabilities);
                     break;
-                case "AWS_DEVICEFARM_FIREFOX":
-                    testGridUrl = getTestGridUrl();
+                case "GRID_FIREFOX":
                     driver = new RemoteWebDriver(testGridUrl, DesiredCapabilities.firefox());
                     ExtentCucumberAdapter.addTestStepLog(strExecutionPlatform + " Driver Creation Completed");
                     break;
