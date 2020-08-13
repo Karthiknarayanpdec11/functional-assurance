@@ -12,12 +12,11 @@
         <!--LOCAL_CHROME, LOCAL_FIREFOX, GRID_CHROME, GRID_FIREFOX-->
 <!--        <executionPlatformDefault>AWS_CHROME</executionPlatformDefault>-->
         <executionPlatformDefault>LOCAL_CHROME</executionPlatformDefault>
-        <gridURLDefault>localhost</gridURLDefault>
+        <gridURLDefault>http://localhost:4444/wd/hub</gridURLDefault>
         <apiHostDefault>localhost</apiHostDefault>
         <applicationHostDefault>localhost</applicationHostDefault>
         <dashboardHostDefault>localhost</dashboardHostDefault>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>

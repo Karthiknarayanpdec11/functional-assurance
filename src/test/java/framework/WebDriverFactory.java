@@ -39,7 +39,7 @@ public class WebDriverFactory {
         try {
             ChromeOptions chromeOptions;
             FirefoxOptions firefoxOptions;
-            URL testGridUrl = System.getProperty("gridURL").trim();
+            URL testGridUrl = new URL(System.getProperty("gridURL").trim());
             String strExecutionPlatform = System.getProperty("executionPlatform").trim().toUpperCase();
             //LOCAL_CHROME, LOCAL_FIREFOX, AWS_CHROME, AWS_FIREFOX, AWS_DEVICEFARM_CHROME, AWS_DEVICEFARM_FIREFOX
 
@@ -50,7 +50,6 @@ public class WebDriverFactory {
                     chromeOptions.addArguments("--no-sandbox");
                     chromeOptions.addArguments("--disable-dev-shm-usage");
                     chromeOptions.addArguments("start-maximized");
-                    chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(chromeOptions);
                     break;
@@ -62,7 +61,6 @@ public class WebDriverFactory {
                 case "GRID_CHROME":
                     DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
                     chromeOptions = new ChromeOptions();
-                    chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
                     desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
                     driver = new RemoteWebDriver(testGridUrl, desiredCapabilities);
                     break;
