@@ -14,7 +14,7 @@
         <executionPlatformDefault>LOCAL_CHROME</executionPlatformDefault>
         <gridURLDefault>http://localhost:4444/wd/hub</gridURLDefault>
         <apiHostDefault>localhost</apiHostDefault>
-        <applicationHostDefault>localhost</applicationHostDefault>
+        <applicationHostDefault>awswrkshpalb-1570520390.us-west-2.elb.amazonaws.com</applicationHostDefault>
         <dashboardHostDefault>localhost</dashboardHostDefault>
     </properties>
     <dependencies>
@@ -91,11 +91,6 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpmime</artifactId>
             <version>4.5.6</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>aws-sdk-java</artifactId>
-            <version>2.10.60</version>
         </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
