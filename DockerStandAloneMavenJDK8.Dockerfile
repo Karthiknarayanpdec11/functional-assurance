@@ -7,4 +7,6 @@ MAINTAINER "Mohanraj"
 RUN echo 'mybootcampproject:test'
 RUN git clone -b master --single-branch 'https://github.com/TechnologyBootCamps/functional-assurance.git'
 WORKDIR /functional-assurance
+RUN mvn --version
+RUN mvn dependency:go-offline
 RUN ls

@@ -93,24 +93,24 @@ public class WebDriverFactory {
         return objProp;
     }
 
-    public static URL getTestGridUrl() {
-        String strAWSprojectArn = readData().getProperty("AWSprojectArn");
-        System.out.println("eeee:" + strAWSprojectArn);
-        DeviceFarmClient client = DeviceFarmClient.builder().region(Region.US_WEST_2).build();
-        CreateTestGridUrlRequest request = CreateTestGridUrlRequest.builder()
-                .expiresInSeconds(300) // 5 minutes
-                .projectArn(strAWSprojectArn)
-                .build();
-        URL testGridUrl = null;
-        try {
-            CreateTestGridUrlResponse response = client.createTestGridUrl(request);
-            testGridUrl = new URL(response.url());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("testGridUrl: " + testGridUrl);
-        return testGridUrl;
-    }
+    //    public static URL getTestGridUrl() {
+    //        String strAWSprojectArn = readData().getProperty("AWSprojectArn");
+    //        System.out.println("eeee:" + strAWSprojectArn);
+    //        DeviceFarmClient client = DeviceFarmClient.builder().region(Region.US_WEST_2).build();
+    //        CreateTestGridUrlRequest request = CreateTestGridUrlRequest.builder()
+    //                .expiresInSeconds(300) // 5 minutes
+    //                .projectArn(strAWSprojectArn)
+    //                .build();
+    //        URL testGridUrl = null;
+    //        try {
+    //            CreateTestGridUrlResponse response = client.createTestGridUrl(request);
+    //            testGridUrl = new URL(response.url());
+    //        } catch (Exception e) {
+    //            e.printStackTrace();
+    //        }
+    //        System.out.println("testGridUrl: " + testGridUrl);
+    //        return testGridUrl;
+    //    }
 }
 
 
