@@ -12,7 +12,7 @@
         <!--LOCAL_CHROME, LOCAL_FIREFOX, GRID_CHROME, GRID_FIREFOX-->
 <!--        <executionPlatformDefault>AWS_CHROME</executionPlatformDefault>-->
         <executionPlatformDefault>LOCAL_CHROME</executionPlatformDefault>
-        <gridURLDefault>http://zalenium:4444/wd/hub</gridURLDefault>
+        <gridURLDefault>http://localhost:4444/wd/hub</gridURLDefault>
         <apiHostDefault>localhost</apiHostDefault>
         <applicationHostDefault>awswrkshpalb-1570520390.us-west-2.elb.amazonaws.com</applicationHostDefault>
         <dashboardHostDefault>localhost</dashboardHostDefault>
