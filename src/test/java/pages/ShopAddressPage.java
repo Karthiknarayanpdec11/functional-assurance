@@ -17,6 +17,7 @@ public class ShopAddressPage extends ShopMasterPageWeb {
     @FindBy(id = "datitle")
     WebElement txtTitle;
 
+    
     @FindBy(id = "dafirstname")
     WebElement txtFirstName;
 
