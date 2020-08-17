@@ -10,10 +10,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.devicefarm.DeviceFarmClient;
-import software.amazon.awssdk.services.devicefarm.model.CreateTestGridUrlRequest;
-import software.amazon.awssdk.services.devicefarm.model.CreateTestGridUrlResponse;
 
 import java.io.File;
 import java.io.FileInputStream;
