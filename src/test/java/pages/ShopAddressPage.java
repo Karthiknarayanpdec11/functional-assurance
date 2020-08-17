@@ -17,8 +17,6 @@ public class ShopAddressPage extends ShopMasterPageWeb {
     @FindBy(id = "datitle")
     WebElement txtTitle;
 
-    dfdsfs
-
     @FindBy(id = "dafirstname")
     WebElement txtFirstName;
 
