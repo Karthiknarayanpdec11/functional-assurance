@@ -36,13 +36,13 @@ public class ShopLoginPage extends ShopMasterPageWeb {
     @FindBy(id = "confirmpassword")
     WebElement txtConfirmPassword;
 
-    @FindBy(id = "firstname")
+    @FindBy(xpath = "//input[contains(@id,'first')]")
     WebElement txtFirstName;
 
-    @FindBy(id = "lastname")
+    @FindBy(xpath = "//input[contains(@id,'last')]")
     WebElement txtLastName;
 
-    @FindBy(id = "registeremail")
+    @FindBy(xpath = "//input[contains(@id,'email') and not(contains(@id,'-'))]")
     WebElement txtRegisteredEmail;
 
     @FindBy(xpath = "//span[contains(text(),'Log In')]")
